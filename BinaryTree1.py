@@ -1,8 +1,8 @@
-def pre_order(node):
-    if node is None:
-        return
-    print(node.data, end='-')
-    pre_order(node.left)
+def pre_order(node):                    #def pre_order(node):
+    if node is None:                    #    if node:
+        return                          #        print(node.data, end='-')
+    print(node.data, end='-')           #        pre_order(node.left)
+    pre_order(node.left)                #        pre_order(node.right)
     pre_order(node.right)
     
 def in_order(node):
