@@ -1,3 +1,4 @@
+from collections import deque
 graph = [
     [0, 1, 1, 0, 0, 0, 0, 0],
     [1, 0, 0, 1, 0, 0, 0, 0],
@@ -18,7 +19,15 @@ def dfs(g, i, visited):
 
 
 def bfs(g, i, visited):
-    pass
+    queue = deque([i])
+    visited[i] = 1
+    while queue:
+        v = queue.popleft()
+        print(chr(ord('A') + v), end=' ')
+        for j in range(len(graph)):
+            if g[v][j] == 1 and not visited[j]:
+                queue.append(j)
+                visited[j] = 1
 
 visited_dfs = [0 for _ in range(len(graph))]
 visited_bfs = [0 for _ in range(len(graph))]
